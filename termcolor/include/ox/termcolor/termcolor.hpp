@@ -66,24 +66,22 @@ struct legacy16 {
     details::legacy_color color;
 };
 
-template <std::uint8_t r, std::uint8_t g, std::uint8_t b>
-struct bg_rgb_type {
-    bg_rgb_type()
-#if OX_CPLUSPLUS >= 11
-        = default;
-#else
-    {
-    }
-#endif
-    rgb_type<r, g, b> color;
-};
 
-struct bg_rgb {
-    bg_rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
+struct on_rgb {
+    on_rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
 
-    bg_rgb(details::rgb_color rgb_color) : color(rgb_color) {}
+    on_rgb(details::rgb_color rgb_color) : color(rgb_color) {}
 
     details::rgb_color color;
+};
+
+template <std::uint8_t r, std::uint8_t g, std::uint8_t b>
+struct on_rgb_type {
+    on_rgb_type() {}
+
+    operator on_rgb() { return on_rgb(color); }
+
+    rgb_type<r, g, b> color;
 };
 
 namespace details {
@@ -235,7 +233,7 @@ inline void set_color(Stream &stream, legacy_color color) {
 }
 
 template <typename Stream>
-inline void set_color(Stream &stream, bg_rgb color) {
+inline void set_color(Stream &stream, on_rgb color) {
     if (!detect_rgb(stream)) return;
 
     _set_color(stream, color.color, true);
@@ -268,6 +266,9 @@ STYLE(blink, 5)
 STYLE(reverse, 7)
 STYLE(concealed, 8)
 STYLE(crossed, 9)
+
+typedef rgb_type<0, 0, 0> rgb_reset;
+typedef on_rgb_type<0, 0, 0> on_rgb_reset;
 
 #undef STYLE
 #undef C
