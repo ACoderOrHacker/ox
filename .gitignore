@@ -40,5 +40,9 @@
 # debug information files
 *.dwo
 
+# xmake files
 .xmake/
 build/
+
+# vscode project files
+.vscode/
