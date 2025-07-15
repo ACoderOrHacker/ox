@@ -34,52 +34,52 @@ struct legacy_color {
 template <std::uint8_t r, std::uint8_t g, std::uint8_t b>
 struct rgb_type {
 public:
-    rgb_type() : color{r, g, b} {}
+    inline rgb_type() : color{r, g, b} {}
 
-    operator details::rgb_color() { return color; }
+    inline operator details::rgb_color() { return color; }
 
     details::rgb_color color;
 };
 
 struct rgb {
-    rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
+    inline rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
 
-    operator details::rgb_color() const { return color; }
+    inline operator details::rgb_color() const { return color; }
 
     details::rgb_color color;
 };
 
 template <std::uint8_t code>
 struct legacy16_type {
-    legacy16_type() : color{code} {}
+    inline legacy16_type() : color{code} {}
 
-    operator details::legacy_color() { return color; }
+    inline operator details::legacy_color() { return color; }
 
     details::legacy_color color;
 };
 
 struct legacy16 {
-    legacy16(std::uint8_t code) : color{code} {}
+    inline legacy16(std::uint8_t code) : color{code} {}
 
-    operator details::legacy_color() { return color; }
+    inline operator details::legacy_color() { return color; }
 
     details::legacy_color color;
 };
 
 
 struct on_rgb {
-    on_rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
+    inline on_rgb(std::uint8_t r, std::uint8_t g, std::uint8_t b) : color{r, g, b} {}
 
-    on_rgb(details::rgb_color rgb_color) : color(rgb_color) {}
+    inline on_rgb(details::rgb_color rgb_color) : color(rgb_color) {}
 
     details::rgb_color color;
 };
 
 template <std::uint8_t r, std::uint8_t g, std::uint8_t b>
 struct on_rgb_type {
-    on_rgb_type() {}
+    inline on_rgb_type() {}
 
-    operator on_rgb() { return on_rgb(color); }
+    inline operator on_rgb() { return on_rgb(color); }
 
     rgb_type<r, g, b> color;
 };
@@ -122,6 +122,7 @@ inline DWORD get_standard_handle(const std::wostream &stream) {
 #endif
 
 template <typename Stream>
+inline
 bool is_atty(Stream &stream) {
     FILE *std_stream = get_standard_stream(stream);
 
@@ -140,7 +141,7 @@ bool is_atty(Stream &stream) {
 //! Convert ansi code to windows color constants
 //! It is a internal function
 //! I know it's ugly. But it's windows :)
-WORD AnsiToWindowsColor(int code, WORD current) {
+inline WORD AnsiToWindowsColor(int code, WORD current) {
     static const int ansi_map[8] = {
         0,  // black
         4,  // red
