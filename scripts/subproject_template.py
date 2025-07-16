@@ -88,5 +88,5 @@ int main() {
     test_cpp.close()
 
     # root library entry
-    project_root_file = open(os.path.join(path, "include", project + ".hpp"), "w")
+    project_root_file = open(os.path.join(path, "include", project, "ox",  + ".hpp"), "w")
     project_root_file.close()
