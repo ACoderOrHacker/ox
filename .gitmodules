@@ -1,6 +1,6 @@
-[submodule "ox.termcolor"]
-	path = ox.termcolor
-	url = https://github.com/ACoderOrHacker/ox.termcolor.git
-[submodule "ox.stacktrace"]
-	path = ox.stacktrace
+[submodule "stacktrace"]
+	path = stacktrace
 	url = https://github.com/ACoderOrHacker/ox.stacktrace.git
+[submodule "termcolor"]
+	path = termcolor
+	url = https://github.com/ACoderOrHacker/ox.termcolor.git
