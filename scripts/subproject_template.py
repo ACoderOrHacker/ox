@@ -25,7 +25,7 @@ if __name__ == "__main__":
     os.makedirs(os.path.join(path, "tests"), exist_ok = True)
     os.makedirs(os.path.join(path, "include", "ox", project), exist_ok = True)
     os.makedirs(os.path.join(path, "meta"), exist_ok = True)
-
+    
     xmake_lua = open(os.path.join(path, "xmake.lua"), "w")
     xmake_lua.write(f"""set_xmakever("2.2.2")
 set_project("{project}")
@@ -88,5 +88,6 @@ int main() {
     test_cpp.close()
 
     # root library entry
-    project_root_file = open(os.path.join(path, "include", project, "ox",  + ".hpp"), "w")
+    project_root_file = open(os.path.join(path, "include", "ox", project + ".hpp"), "w")
     project_root_file.close()
+    
