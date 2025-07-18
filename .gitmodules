@@ -4,3 +4,6 @@
 [submodule "termcolor"]
 	path = termcolor
 	url = https://github.com/ACoderOrHacker/ox.termcolor.git
+[submodule "utility"]
+	path = utility
+	url = https://github.com/ACoderOrHacker/ox.utility.git
