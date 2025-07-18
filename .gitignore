@@ -47,4 +47,8 @@ build/
 # vscode project files
 .vscode/
 
+# My TODO list
 TODO
+
+# Local files
+local/
