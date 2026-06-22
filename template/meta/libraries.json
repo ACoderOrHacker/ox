@@ -1,0 +1,13 @@
+{
+  "libraries": [
+    {
+      "name": "$NAME$",
+      "description": "$DESC$",
+      "copyright": "$COPYRIGHT$",
+      "authors": [$AUTHORS_SPLIT_WITH_COMMAS$],
+      "version": "$VERSION$",
+      "cpp_standard": "$CPP_STANDARD$",
+      "homepage": "$HOMEPAGE$"
+    }
+  ]
+}

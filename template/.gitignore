@@ -1,6 +1,3 @@
-# Prerequisites
-*.d
-
 # Compiled Object files
 *.slo
 *.lo
@@ -44,13 +41,13 @@
 .xmake/
 build/
 
-# Zed project files
-.zed/
-
 # vscode project files
 .vscode/
 
-# TODO list
+# zed project files
+.zed/
+
+# My TODO list
 TODO
 
 # Local files

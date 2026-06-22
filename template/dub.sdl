@@ -1,0 +1,8 @@
+name "$NAME$"
+description "$DESC$"
+authors $AUTHORS_SPLIT_WITH_SPACES$
+copyright "$COPYRIGHT$"
+license "Apache-2.0"
+targetType "executable"
+targetPath "build"
+sourcePath "source"
