@@ -1,13 +1,25 @@
 set_xmakever("2.2.2")
 set_project("$NAME$")
-set_version("$VERSION$")
 
 -- include directories
 add_includedirs("include")
 
+set_languages("c++$CPP_STANDARD$")
+
+-- compile_commands generation
+add_rules("plugin.compile_commands.autoupdate", {outputdir = "build"})
+
 -- targets
 target("$NAME$")
-    set_kind("headeronly")
+    if $HEADERONLY_BOOLEAN$ then
+        set_kind("headeronly")
+    else
+        if has_config("is-static") then
+            set_kind("static")
+        else
+            set_kind("shared")
+        end
+    end
     add_headerfiles("include/(**.hpp)")
     add_rules("utils.install.cmake_importfiles")
     add_rules("utils.install.pkgconfig_importfiles")

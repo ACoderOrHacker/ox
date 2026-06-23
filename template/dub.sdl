@@ -3,6 +3,6 @@ description "$DESC$"
 authors $AUTHORS_SPLIT_WITH_SPACES$
 copyright "$COPYRIGHT$"
 license "Apache-2.0"
-targetType "executable"
+targetType "library"
 targetPath "build"
 sourcePath "source"
